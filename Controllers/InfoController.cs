@@ -24,7 +24,7 @@ namespace CrudApp.Controllers
             _context = context;
         }
 
-        // ✅ دالة جلب كل الدول
+        // ✅ Get countries
         private List<SelectListItem> GetAllCountries()
         {
             var cultures = CultureInfo.GetCultures(CultureTypes.SpecificCultures);
