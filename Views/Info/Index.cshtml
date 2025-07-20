@@ -5,7 +5,9 @@
 @{
     ViewData["Title"] = "Info List";
 }
-
+@{
+    var index = (Model.PageNumber - 1) * Model.PageSize + 1;
+}
 <h1>Info List</h1>
 
 <form asp-action="Index" method="get" class="mb-3">
@@ -20,6 +22,7 @@
     <table class="table table-striped">
         <thead class="table-dark">
             <tr>
+                <th>ID</th>
                 <th>Name</th>
                 <th>Email</th>
                 <th>Phone</th>
@@ -33,6 +36,7 @@
             @foreach (var item in Model)
             {
                 <tr>
+                    <td>@index</td>
                     <td>@item.Name</td>
                     <td>@item.Email</td>
                     <td>@item.Phone</td>
@@ -45,6 +49,7 @@
                         <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Delete</a>
                     </td>
                 </tr>
+                index++;
             }
         </tbody>
     </table>
