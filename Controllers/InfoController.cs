@@ -45,10 +45,25 @@ namespace CrudApp.Controllers
                 .ToList();
         }
 
-        // GET: Info
-        public async Task<IActionResult> Index()
+        // ✅ GET: Info (بعد إضافة البحث)
+        public async Task<IActionResult> Index(string searchString)
         {
-            return View(await _context.Infos.ToListAsync());
+            var infos = from i in _context.Infos
+                        select i;
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                infos = infos.Where(i =>
+                    i.Name.Contains(searchString) ||
+                    i.Email.Contains(searchString) ||
+                    i.Phone.Contains(searchString) ||
+                    i.Country.Contains(searchString)
+                );
+            }
+
+            ViewBag.CurrentFilter = searchString;
+
+            return View(await infos.ToListAsync());
         }
 
         // GET: Info/Details/5
