@@ -66,7 +66,7 @@ namespace CrudApp.Controllers
 
             ViewBag.CurrentFilter = searchString;
 
-            int pageSize = 10;
+            int pageSize = 7;
             int pageNumber = page ?? 1;
 
             var list = await infos.OrderBy(i => i.Id).ToListAsync();
