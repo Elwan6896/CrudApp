@@ -50,6 +50,13 @@ dotnet ef database update
 dotnet run
 ```
 
+### sometimes you will need to do this
+rm -rf bin obj > this one for deleting the temporary files
+dotnet clean > this one for adding build outputs
+dotnet build > building the app
+dotnet run > running the app
+
+
 Open your browser and navigate to `https://localhost:5001` (or the port in your terminal).
 
 ## 📬 Contact
