@@ -8,6 +8,10 @@ using Microsoft.EntityFrameworkCore;
 using CrudApp.Data;
 using CrudApp.Models;
 using System.Globalization;
+using X.PagedList;
+using X.PagedList.Extensions;
+
+
 
 namespace CrudApp.Controllers
 {
@@ -35,7 +39,7 @@ namespace CrudApp.Controllers
                 }
                 catch
                 {
-                    // تجاهل الثقافات اللي ممكن تعمل استثناء
+
                 }
             }
 
@@ -45,8 +49,7 @@ namespace CrudApp.Controllers
                 .ToList();
         }
 
-        // ✅ GET: Info (بعد إضافة البحث)
-        public async Task<IActionResult> Index(string searchString)
+        public async Task<IActionResult> Index(string searchString, int? page)
         {
             var infos = from i in _context.Infos
                         select i;
@@ -63,8 +66,15 @@ namespace CrudApp.Controllers
 
             ViewBag.CurrentFilter = searchString;
 
-            return View(await infos.ToListAsync());
+            int pageSize = 10;
+            int pageNumber = page ?? 1;
+
+            var list = await infos.OrderBy(i => i.Id).ToListAsync();
+            var pagedList = list.ToPagedList(pageNumber, pageSize);
+
+            return View(pagedList);
         }
+
 
         // GET: Info/Details/5
         public async Task<IActionResult> Details(int? id)

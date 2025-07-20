@@ -358,3 +358,6 @@
 /Users/ahmedelwan/Desktop/CrudApp/bin/Debug/net9.0/zh-Hans/Microsoft.CodeAnalysis.Scripting.resources.dll
 /Users/ahmedelwan/Desktop/CrudApp/bin/Debug/net9.0/zh-Hant/Microsoft.CodeAnalysis.Scripting.resources.dll
 /Users/ahmedelwan/Desktop/CrudApp/obj/Debug/net9.0/CrudApp.sourcelink.json
+/Users/ahmedelwan/Desktop/CrudApp/obj/Debug/net9.0/CrudApp.MvcApplicationPartsAssemblyInfo.cs
+/Users/ahmedelwan/Desktop/CrudApp/bin/Debug/net9.0/X.PagedList.dll
+/Users/ahmedelwan/Desktop/CrudApp/bin/Debug/net9.0/X.PagedList.Mvc.Core.dll
